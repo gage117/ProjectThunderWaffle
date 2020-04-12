@@ -99,4 +99,3 @@ user['user_weapon'] = user.get('user_class')['default_weapon']
 # Greeting
 clear()
 print("Welcome to the land of Thunder Waffle, %s the %s. You've come searching coin with your trusty %s" % (user.get('user_name'), user.get('user_class')['class_name'], user.get('user_weapon')['name']))
-# I am the walrus
