@@ -157,14 +157,11 @@ You currently have %d gold. Pay innkeeper?
 1) Yes
 2) No
 
-Please type number or choice: """ % (user.gold))
-while (user_choice.title() != 'Yes' and user_choice != '1') and (user_choice.title() != 'No' and user_choice != '2'):
+Please type number or choice: """ % (user.gold)).lower()
+choices = ('yes', '1', 'no', '2')
+while user_choice not in choices:
   print("Invalid Choice")
   user_choice = input("> ")
-if user_choice.lower() == 'yes' or user_choice == '1':
-  # Pay innkeeper
-  print("What sort of pushover do you take me for? I'm sick of adventurers thinking they can short me! Looks like I'll have to get the rest from selling that nice %s." % (user.weapon.name))
-elif user_choice.lower() == 'no' or user_choice == '2':
-  # Don't pay innkeeper
+if user_choice in choices:
   print("What sort of pushover do you take me for? I'm sick of adventurers thinking they can short me! Looks like I'll have to get the rest from selling that nice %s." % (user.weapon.name))
 print()
