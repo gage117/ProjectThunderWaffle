@@ -1,5 +1,6 @@
 from os import system, name as os_name
-from classes import Weapon, Armor, Profession, User
+from modules.dictionaries import armors, weapons, professions
+from modules.classes import User
 
 # GLOBAL VARIABLES
 
@@ -10,24 +11,7 @@ from classes import Weapon, Armor, Profession, User
 
 # }
 
-# DICTIONARIES
-armors = {
-  'Linen Robes': Armor(1, 'Linen Robes', 'Light', 5),
-  'Leather Armor': Armor(2, 'Leather Armor', 'Medium', 10),
-  'Chainmail': Armor(3, 'Chainmail', 'Heavy', 20)
-}
-weapons = {
-  'Wooden Staff': Weapon(1, 'Wooden Staff', 5),
-  'Iron Broad Sword': Weapon(2, 'Iron Broad Sword', 10),
-  'Iron Dagger': Weapon(3, 'Iron Dagger', 7),
-  'Old Bow': Weapon(4, 'Old Bow', 6)
-}
-professions = {
-  'Wizard': Profession(1, 'Wizard', weapons.get('Wooden Staff')),
-  'Warrior': Profession(2, 'Warrior', weapons.get('Iron Broad Sword')),
-  'Ranger': Profession(3, 'Ranger', weapons.get('Old Bow')),
-  'Rogue': Profession(4, 'Rogue', weapons.get('Iron Dagger'))
-}
+
 user = User('None')
 
 ### Clears the console
@@ -40,7 +24,10 @@ def clear():
 def wait_for_read(what_to_print):
   print(what_to_print)
   input("> ")
+
+def clear_and_wait(what_to_print):
   clear()
+  wait_for_read(what_to_print)
 
 #########################################################
 
@@ -83,7 +70,7 @@ finally:
 # Greeting
 clear()
 wait_for_read("Welcome to the land of Thunder Waffle, %s the %s. You've come searching coin with your trusty %s. So far you have been unfruitful in your search and have had a turn of bad luck." % (user.name, user.profession.name, user.weapon.name))
-wait_for_read("""After arriving at a town called Ghimori, you've been staying at a local inn. On your third morning there, you wake to a knock at your door...
+clear_and_wait("""After arriving at a town called Ghimori, you've been staying at a local inn. On your third morning there, you wake to a knock at your door...
 
 Innkeeper: %s! You've been here for days! It's time to pay up!
 """ % (user.profession.name))
@@ -100,5 +87,5 @@ while user_choice not in choices:
   print("Invalid Choice")
   user_choice = input("> ")
 if user_choice in choices:
-  print("What sort of pushover do you take me for? I'm sick of adventurers thinking they can short me! Looks like I'll have to get the rest from selling that nice %s." % (user.weapon.name))
-print()
+  wait_for_read("What sort of pushover do you take me for? I'm sick of adventurers thinking they can short me! Looks like I'll have to get the rest from selling that nice %s." % (user.weapon.name))
+clear_and_wait("***Some sort of transition text from the conversation to the combat***")
