@@ -1,3 +1,8 @@
+from modules.color import modifyText
+
+def c_t(text):  # c_t(cyan_text) Requires execution from parent folder and modifyText from dictionaries.py to be imported
+  return modifyText(text, 'cyan')
+
 class Weapon:
   def __init__(self, id, name, damage):
     self.id = id  # int
@@ -7,8 +12,8 @@ class Weapon:
     print("""
 Weapon Info:
   Name: %s
-  Damage: %d
-""" % (self.name, self.damage))
+  Damage: %s
+""" % (c_t(self.name), c_t(self.damage)))
 
 default_weapon = Weapon(0, 'None', 0)
 
@@ -23,8 +28,8 @@ class Armor:
 Armor Info:
   Name: %s
   Category: %s
-  Defense: %d
-""" % (self.name, self.category, self.defense))
+  Defense: %s
+""" % (c_t(self.name), c_t(self.category), c_t(self.defense)))
 
 default_armor = Armor(0, 'None', 'Heavy', 0)
 
@@ -38,7 +43,7 @@ class Profession:
 Profession Info:
   Name: %s
   Default Weapon: %s
-""" % (self.name, self.default_weapon.name))
+""" % (c_t(self.name), c_t(self.default_weapon.name)))
 
 default_profession = Profession(0, 'None', default_weapon)
 
@@ -58,9 +63,11 @@ User Info
   Profession: %s
   Level: %s
   Weapon: %s
+    Damage: %s
   Armor: %s
-  HP: %d
-""" % (self.name, self.profession.name, self.level, self.weapon.name, self.armor.name, self.hp))
+    Defense: %s
+  HP: %s
+""" % (c_t(self.name), c_t(self.profession.name), c_t(self.level), c_t(self.weapon.name), c_t(self.weapon.damage), c_t(self.armor.name), c_t(self.armor.defense), c_t(self.hp)))
   def printAllInfo(self):
     print("""
 User Info
@@ -68,10 +75,12 @@ User Info
   Profession: %s
   Level: %s
   Weapon: %s
+    Damage: %s
   Armor: %s
-  Gold: %d
-  HP: %d
-""" % (self.name, self.profession.name, self.level, self.weapon.name, self.armor.name, self.gold, self.hp))
+    Defense: %s
+  Gold: %s
+  HP: %s
+""" % (c_t(self.name), c_t(self.profession.name), c_t(self.level), c_t(self.weapon.name), c_t(self.weapon.damage), c_t(self.armor.name), c_t(self.armor.defense), c_t(self.hp)))
 
 class Enemy:
   def __init__(self, name, classification, level, hp, damage, defense, loot):
@@ -87,16 +96,16 @@ class Enemy:
 Enemy Info
   Name: %s
   Classification: %s
-  Level: %d
-  HP: %d
-""" % (self.name, self.classification, self.level, self.hp))
+  Level: %s
+  HP: %s
+""" % (c_t(self.name), c_t(self.classification), c_t(self.level), c_t(self.hp)))
   def printAllInfo(self):
     print("""
 Enemy Info
   Name: %s
   Classification: %s
-  Level: %d
-  HP: %d
-  Damage: %d
-  Defense: %d
-""" % (self.name, self.classification, self.level, self.hp, self.damage, self.defense))
+  Level: %s
+  HP: %s
+  Damage: %s
+  Defense: %s
+""" % (c_t(self.name), c_t(self.classification), c_t(self.level), c_t(self.hp), c_t(self.damage), c_t(self.defense)))
