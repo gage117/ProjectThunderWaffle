@@ -1,6 +1,12 @@
 from modules.classes import Weapon, Armor, Profession
 
 # DICTIONARIES
+# conditions = {
+
+# }
+# spells = {
+
+# }
 armors = {
   'Linen Robes': Armor(1, 'Linen Robes', 'Light', 5),
   'Leather Armor': Armor(2, 'Leather Armor', 'Medium', 10),

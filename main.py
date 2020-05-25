@@ -1,33 +1,11 @@
-from os import system, name as os_name
-from modules.dictionaries import armors, weapons, professions, modifyText
+from modules.functions import clear, wait_for_read, clear_and_wait
+from modules.dictionaries import armors, weapons, professions
 from modules.classes import User
+from modules.color import modifyText
 
 # GLOBAL VARIABLES
 
-# conditions = {
-
-# }
-# spells = {
-
-# }
-
-
 user = User('None')
-
-### Clears the console
-def clear():
-  if os_name == 'nt':
-    _ = system('cls')
-  else:
-    _ = system('clear')
-
-def wait_for_read(what_to_print):
-  print(what_to_print)
-  input("> ")
-
-def clear_and_wait(what_to_print):
-  clear()
-  wait_for_read(what_to_print)
 
 yes_no_choices = """\033[96m1) Yes
 2) No\033[0m"""
@@ -79,7 +57,7 @@ clear_and_wait("""After arriving at a town called %s, you've been staying at a l
 
 Innkeeper: %s! You've been here for days! It's time to pay up!
 """ % (modifyText('Ghimori', 'purple'), user.profession.name))
-user_choice = input("""... You owe me 15 gold already! Do you not have any gold?
+user_choice = input("""Innkeeper: ... You owe me 15 gold already! Do you not have any gold?
 
 You currently have %s gold. Pay innkeeper?
 
@@ -91,5 +69,5 @@ while user_choice not in choices:
   print("Invalid Choice")
   user_choice = input("> ")
 if user_choice in choices:
-  wait_for_read("What sort of pushover do you take me for? I'm sick of adventurers thinking they can short me! Looks like I'll have to get the rest from selling that nice %s." % (modifyText(user.weapon.name, 'yellow')))
+  wait_for_read("Innkeeper: What sort of pushover do you take me for? I'm sick of adventurers thinking they can short me! Looks like I'll have to get the rest from selling that nice %s." % (modifyText(user.weapon.name, 'yellow')))
 clear_and_wait("***Some sort of transition text from the conversation to the combat***")

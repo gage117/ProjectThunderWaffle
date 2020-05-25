@@ -11,9 +11,9 @@ def loot_generator(loot_level, commonality):
       }
 
 enemies = {
-  'Bandit': Enemy('Bandit', 'Humanoid', 1, 10, 3, 5, loot_generator(1, 'common')),
-  'Bandit Leader': Enemy('Bandit Leader', 'Humanoid', 2, 12, 4, 5, loot_generator(2, 'common')),
-  'Wolf': Enemy('Wolf', 'Beast', 2, 12, 4, 4, loot_generator(2, 'common')),
+  'Bandit': Enemy('Bandit', 'Bandits', 'Humanoid', 1, 10, 3, 5, loot_generator(1, 'common')),
+  'Bandit Leader': Enemy('Bandit Leader', 'Bandit Leaders', 'Humanoid', 2, 12, 4, 5, loot_generator(2, 'common')),
+  'Wolf': Enemy('Wolf', 'Wolves', 'Beast', 2, 12, 4, 4, loot_generator(2, 'common')),
 }
 
 

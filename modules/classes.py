@@ -83,8 +83,9 @@ User Info
 """ % (c_t(self.name), c_t(self.profession.name), c_t(self.level), c_t(self.weapon.name), c_t(self.weapon.damage), c_t(self.armor.name), c_t(self.armor.defense), c_t(self.hp)))
 
 class Enemy:
-  def __init__(self, name, classification, level, hp, damage, defense, loot):
+  def __init__(self, name, plural_name, classification, level, hp, damage, defense, loot):
     self.name = name  # str
+    self.plural_name = plural_name  # str
     self.level = level  # int
     self.classification = classification # str
     self.hp = hp  # int
@@ -103,9 +104,10 @@ Enemy Info
     print("""
 Enemy Info
   Name: %s
+  Plural Name: %s
   Classification: %s
   Level: %s
   HP: %s
   Damage: %s
   Defense: %s
-""" % (c_t(self.name), c_t(self.classification), c_t(self.level), c_t(self.hp), c_t(self.damage), c_t(self.defense)))
+""" % (c_t(self.name), c_t(self.plural_name), c_t(self.classification), c_t(self.level), c_t(self.hp), c_t(self.damage), c_t(self.defense)))
