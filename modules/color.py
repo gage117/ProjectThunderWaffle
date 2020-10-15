@@ -52,5 +52,3 @@ def modifyText(text, modifier):
     for i in text:
       modified_arr.append(modifyText(i, modifier))
     return modified_arr
-
-print(modifyText('Bark', 'cyan'))
